@@ -40,11 +40,15 @@ public class BattleSystem : StateMachine
 
 
     [Header("Effect Height")]
-    public float effectHeight = 2f;
+    public float effectHeight = 0f;
 
     public bool isPlayerTurn = true;
 
     [SerializeField] PlayerMoveListManager moveListManager;
+
+    [Header("Heal Variables")]
+    public GameObject healParticleEffect;
+    public AudioClip healSound;
 
     [Header("System")]
     public int mapSceneIndex = 1;
@@ -183,7 +187,7 @@ public class BattleSystem : StateMachine
         }
 
         //Move effect to correct position
-        float yHeight = effectHeight;
+        float yHeight = 0;
         if (usedAction.particleEffect)
         {
 
@@ -246,9 +250,36 @@ public class BattleSystem : StateMachine
         //Defend
         playerActionMenu.SetActive(false);
         playerMoveUI.SetActive(false);
-        player.getDefenseAction().Execute(player, enemy);
-        StartCoroutine(State.End());
 
+
+        StartCoroutine(cPlayerDefend());
+
+        
+
+    }
+
+    public IEnumerator cPlayerDefend()
+    {
+        Action usedAction = player.getDefenseAction();
+        usedAction.Execute(player, enemy);
+
+        float yHeight = 0;
+        if (usedAction.particleEffect)
+        {
+
+            Vector3 targetPos = new Vector3(player.gameObject.transform.position.x, yHeight, player.gameObject.transform.position.z);
+            GameObject newEffect = Instantiate(usedAction.particleEffect, targetPos, Quaternion.identity);
+
+
+            newEffect.GetComponent<EffectTrigger>().Activate();
+
+        }
+        if (usedAction.actionSound)
+        {
+            actionAudioSource.PlayOneShot(usedAction.actionSound);
+        }
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(State.End());
     }
 
     public void PlayerHeal()
@@ -268,6 +299,21 @@ public class BattleSystem : StateMachine
 
     public IEnumerator cPlayerHeal()
     {
+        float yHeight = effectHeight;
+        if (healParticleEffect)
+        {
+
+            Vector3 targetPos = new Vector3(player.gameObject.transform.position.x, yHeight, player.gameObject.transform.position.z);
+            GameObject newEffect = Instantiate(healParticleEffect, targetPos, Quaternion.identity);
+
+
+            newEffect.GetComponent<EffectTrigger>().Activate();
+
+        }
+        if (healSound)
+        {
+            actionAudioSource.PlayOneShot(healSound);
+        }
         player.entityHealth.Heal(Mathf.RoundToInt((float)player.stats.MaxHealth / 2f));
         player.healthUI.adjustHeal();
         yield return new WaitForSeconds(1.5f);
