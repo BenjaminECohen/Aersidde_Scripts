@@ -61,7 +61,7 @@ public class ActionButton : MonoBehaviour
 
 
         movePotencyText.text = "Potency: " + storedAction.potency.ToString();
-        moveCostText.text = "Cost: " + storedAction.manaCost.ToString();
+        moveCostText.text = "Mana Cost: " + storedAction.manaCost.ToString();
         moveDescText.text = storedAction.description;
 
         
