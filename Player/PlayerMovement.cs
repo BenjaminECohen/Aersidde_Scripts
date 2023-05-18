@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Code originally used for possibility of player controlled locomotion
+/// </summary>
+
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;

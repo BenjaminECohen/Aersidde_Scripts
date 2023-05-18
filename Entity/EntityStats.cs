@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Scriptable object to create a base class that both the player and enemy entities can use when in  battle
+/// </summary>
+
 [CreateAssetMenu]
 public class EntityStats : ScriptableObject
 {
@@ -16,7 +20,7 @@ public class EntityStats : ScriptableObject
 
     
    
-
+    //Available Moves
     public MoveList entityMoveSet;
 
     public int storedHeals;

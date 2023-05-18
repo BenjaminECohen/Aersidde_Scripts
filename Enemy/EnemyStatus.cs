@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Script inheriting from EntityStatus with enemy specific methods that work with EnemyAI scriptable objects
+/// </summary>
 public class EnemyStatus : EntityStatus
 {
     public EnemyAI enemyAIPattern;

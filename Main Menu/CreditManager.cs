@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Script to handle the scrolling credits
+/// </summary>
+
+
 public class CreditManager : MonoBehaviour
 {
     public Animator creditAnim;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void OpenCredits()
     {

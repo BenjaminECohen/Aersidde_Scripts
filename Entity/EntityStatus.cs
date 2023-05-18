@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Script to store values of the entity during battle that are based on or affect the entity's stats
+/// </summary>
 public abstract class EntityStatus : MonoBehaviour
 {
     [Header("Stat Info")]
@@ -19,7 +23,7 @@ public abstract class EntityStatus : MonoBehaviour
     public List<AttackAction> attackActions;
 
 
-    [Header("Modifiers")]
+    [Header("Modifiers")] //List of buffs towards the entity
     public List<Modifier<float, int>> attackModifiers = new List<Modifier<float, int>>();
     public List<Modifier<float, int>> defenseModifiers = new List<Modifier<float, int>>();
 
@@ -38,7 +42,7 @@ public abstract class EntityStatus : MonoBehaviour
     {
         
     }
-
+    //Method that plays at the start of an entities turn before they choose an action
     public void StartTick()
     {
         List<Modifier<float, int>> temp = new List<Modifier<float, int>>(defenseModifiers);
@@ -54,7 +58,7 @@ public abstract class EntityStatus : MonoBehaviour
         }     
 
     }
-
+    //Method that plays at the end of an entity's turn after they execute an action
     public void EndTick()
     {
         List<Modifier<float, int>> temp = new List<Modifier<float, int>>(attackModifiers);
@@ -70,6 +74,7 @@ public abstract class EntityStatus : MonoBehaviour
         }
     }
 
+    //Check to make sure that a move can actually be performed with the entity's current mana
     public bool enoughMana(int moveIndex)
     {
         if (attackActions[moveIndex].manaCost <= entityMana.CurrentMana)

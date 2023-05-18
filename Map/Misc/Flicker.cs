@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// class that handles the visual flicker of the UI
+/// </summary>
+
+
 public class Flicker : MonoBehaviour
 {
 

@@ -37,6 +37,7 @@ public class Health : MonoBehaviour
         return currentHealth;
     }
 
+    //See what portion of health is left and see if it is greater than a certain percent value
     public bool checkIfGreaterThanPercent(float greaterThanDecimal, bool equalTo)
     {
         if (equalTo)

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that handles the multiple particle systems and lights that an effect uses
+/// </summary>
+
 public class EffectTrigger : MonoBehaviour
 {
     public List<ParticleSystem> pSystems;
@@ -40,7 +44,7 @@ public class EffectTrigger : MonoBehaviour
 
         bool destroy = true;
 
-        foreach (ParticleSystem p in pSystems)
+        foreach (ParticleSystem p in pSystems) //If any particle system is still playing, set the gameobject to not destroy
         {
             if (!p.isStopped)
             {

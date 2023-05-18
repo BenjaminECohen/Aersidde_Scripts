@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// AI for an enemy who has 4 specific moves that play in rotation
+/// </summary>
+
 [CreateAssetMenu(menuName = "EnemyAI/EnemyType2")]
 public class EnemyType2 : EnemyAI
 {

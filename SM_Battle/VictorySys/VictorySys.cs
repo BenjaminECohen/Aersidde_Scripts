@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class that controls the functions of the victory screen UI and the stat increase functionality
+/// </summary>
+
 public class VictorySys : MonoBehaviour
 {
     public EntityStats playerStats;
@@ -26,7 +30,7 @@ public class VictorySys : MonoBehaviour
         battleSys = FindObjectOfType<BattleSystem>();
     }
 
-    public void ConfirmAllocation()
+    public void ConfirmAllocation() //Set the player stats according to the values in the victory screen
     {
         playerStats.Speed = int.Parse(speedBox.text);
         playerStats.Strength = int.Parse(strengthBox.text);
@@ -37,7 +41,7 @@ public class VictorySys : MonoBehaviour
     }
 
 
-    public void Init()
+    public void Init() //Initialize the victory screen UI state and details
     {
         SetConfirmInteractable(false);
         setTopButtonInteractable(true);

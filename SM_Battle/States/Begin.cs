@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Start of Combat State specific Start and End functionalities
+/// </summary>
+
 public class Begin : State
 {
 

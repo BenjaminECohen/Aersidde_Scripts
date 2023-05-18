@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// End of Combat State specific Start and End functionalities
+/// </summary>
+
 public class End : State
 {
     public End(BattleSystem fightSystem) : base(fightSystem)
@@ -19,22 +23,17 @@ public class End : State
             FightSystem.player.animController.PlayDeadAnim();
             yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(FightSystem.mainMenuIndex);
-            //Reset Player Stats at main menu START
         }
         else
         {
             Debug.Log("Player Wins");
 
-            FightSystem.player.stats.currentHealth = FightSystem.player.entityHealth.currentHealth;
+            FightSystem.player.stats.currentHealth = FightSystem.player.entityHealth.currentHealth; //Assign player stats from the battle to the player scriptable object stats to save between scenes
 
             FightSystem.enemy.animController.PlayDeadAnim();
             yield return new WaitForSeconds(2f);
-            FightSystem.ShowVictorySys();
+            FightSystem.ShowVictorySys(); //Open Victory screen UI to handle stat increases and button to return to map/node scene
         }
-
-        //Return to main map
-        //Play screen animation
-        //Teleport player
 
         
     }

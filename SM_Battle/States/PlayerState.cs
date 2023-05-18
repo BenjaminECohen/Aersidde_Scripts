@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Player State specific Start and End functionalities
+/// </summary>
+
 public class PlayerState : State
 {
 
@@ -13,7 +17,7 @@ public class PlayerState : State
 
     public override IEnumerator Start()
     {
-        FightSystem.player.StartTick();
+        FightSystem.player.StartTick(); //Decrease certain modifiers duration
         //Show Player UI
         FightSystem.playerActionMenu.SetActive(true);
         return base.Start();
@@ -23,7 +27,7 @@ public class PlayerState : State
     public override IEnumerator End()
     {
         
-        FightSystem.player.EndTick();
+        FightSystem.player.EndTick(); //Decrease certain modifiers duration
         FightSystem.playerActionMenu.SetActive(false);
         FightSystem.playerMoveUI.SetActive(false);
         FightSystem.isPlayerTurn = false;

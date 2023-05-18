@@ -7,17 +7,17 @@ public class AttackAction : Action
 {
     [Header("Offensive Variables")]
     public ActionAttribute attribute = ActionAttribute.Physical;
-    public int potency = 100;
-    public int manaCost = 0;
+    public int potency = 100; //Damage value
+    public int manaCost = 0;  //Resource cost
 
     [Header("Change to Modifier")]
-    public bool isModifier = false;
+    public bool isModifier = false; //Does the move apply a modifier/stat boost
     [Tooltip("Else target enemy")]
-    public bool targetSelf = true;
-    public int duration = 3;
+    public bool targetSelf = true;  //Does the modifier target the player?
+    public int duration = 3;        // Duration of the modifier
     [Tooltip("False = Defensive")]
     public bool isOffensive = true;
-    public float decimalValue = 0.2f;
+    public float decimalValue = 0.2f;  //Strength of the modifier (can be negative)
 
 
     [Header("Appearance")]
@@ -26,11 +26,11 @@ public class AttackAction : Action
     public string description;
 
     [Header("Effect")]
-    public int atkAnimation = 1;
+    public int atkAnimation = 1; //Which animation to play for the attack
 
     [Tooltip("atk anim 1: .6 sec\n" + " atk anim 2: 1 sec\n" + "atk anim 3: 0.6 sec")]
     public float effectDelay = 0.6f;
-    public int yOffset = 0;
+    public int yOffset = 0; //Does resulting particle effect need to be move up on the y axis?
 
 
     

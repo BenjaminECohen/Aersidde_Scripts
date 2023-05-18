@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Script to handle the functions of the main menu
+/// </summary>
 public class MainMenuManager : MonoBehaviour
 {
     public ProgressData progressData;
@@ -12,18 +15,7 @@ public class MainMenuManager : MonoBehaviour
     public int mapIndex = 1;
     public int creditsIndex = 5;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Reset all values to make sure that player is set to base stats
     public void StartGameButton()
     {
         progressData.ResetProgress();

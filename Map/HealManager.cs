@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Function for the UI to display a Heal Node's functions and inform the player of their current health status
+/// </summary>
+
+
 public class HealManager : MonoBehaviour
 {
     public Text infoText;

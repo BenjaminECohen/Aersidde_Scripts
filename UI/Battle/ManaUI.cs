@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class to handle the functions of the Mana UI in the same manner of the health ui
+/// </summary>
+
+
+
 public class ManaUI : MonoBehaviour
 {
     public Image fillbar1; //Front

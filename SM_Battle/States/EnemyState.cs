@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy State specific Start and End functionalities
+/// </summary>
+
 public class EnemyState : State
 {
     public EnemyState(BattleSystem fightSystem) : base(fightSystem)
@@ -11,7 +15,7 @@ public class EnemyState : State
     public override IEnumerator Start()
     {
         Debug.Log($"<color=cyan>Starting state: {this}</color>");
-        FightSystem.enemy.StartTick();
+        FightSystem.enemy.StartTick(); //Decrease certain modifiers duration
         yield return new WaitForSeconds(1f);
         int actionIndex = FightSystem.enemy.DecideAction();
 
@@ -24,29 +28,10 @@ public class EnemyState : State
 
     public override IEnumerator End()
     {
-        FightSystem.enemy.EndTick();
+        FightSystem.enemy.EndTick(); //Decrease certain modifiers duration
         FightSystem.isPlayerTurn = true;
-        /*
-        if (FightSystem.player.entityHealth.currentHealth == 0)
-        {
-            FightSystem.PlayerDeath();
-        }
-        else
-        {
-            FightSystem.isPlayerTurn = true;
-            FightSystem.NextState();
-        }*/
+        
         return base.End();
     }
 
-    /*
-    public int DecideAction()
-    {
-        //Determines based on EnemyFight Logic
-        
-        int remainingHealth = FightSystem.enemy.attackActions[actionIndex].Execute(FightSystem.enemy, FightSystem.player);
-        FightSystem.playerHealthUI.adjustHealth();
-        return remainingHealth;
-    
-    }*/
 }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Stats and methods for enemy specific stats
+/// </summary>
+
 [CreateAssetMenu]
 public class EnemyStats : EntityStats
 {

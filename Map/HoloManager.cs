@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Function for the UI to display a Holodeck (voice recording) Node's functions and visual demonstrate the status of the voice recording
+/// </summary>
+
 public class HoloManager : MonoBehaviour
 {
     public Image fillBar;
@@ -14,12 +18,6 @@ public class HoloManager : MonoBehaviour
 
     bool play;
     bool pause = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

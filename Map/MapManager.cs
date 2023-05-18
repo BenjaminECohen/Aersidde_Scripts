@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Overarching manager that handles the main functions of the map scene of the game and stores references to all neccessary variables
+/// </summary>
+
+
 public class MapManager : MonoBehaviour
 {
     [Header("Player Stats")]
@@ -83,7 +88,8 @@ public class MapManager : MonoBehaviour
         Setup();
         
     }
-
+    
+    //Setup the state of the map at the opening of the map scene
     public void Setup()
     {
         if (progressData.ProgressIndex == progressData.mapList.sectionList.Count)
@@ -101,6 +107,7 @@ public class MapManager : MonoBehaviour
         
     }
 
+    //Load the nodes in accordance with the player's game progress
     public void LoadNodes()
     {
         int index = progressData.ProgressIndex;
@@ -165,7 +172,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void LoadActionPanel()
+    public void LoadActionPanel() //Method to load the UI when an Action Node is selected
     {
         Debug.Log("Loading Action Panel");
 
@@ -192,7 +199,7 @@ public class MapManager : MonoBehaviour
         BasicPopupFunctions();
     }
 
-    public void LoadHealPanel()
+    public void LoadHealPanel() //Method to load the UI when a Heal Node is selected
     {
         Debug.Log("Loading Heal Panel");
         healManager.DisplayInfo(playerStats);
@@ -210,7 +217,7 @@ public class MapManager : MonoBehaviour
 
     }
 
-    public void LoadBattleScene()
+    public void LoadBattleScene() //Method to display the loading screen and to start loading the battle scene when a Battle Node is selected
     {
         Debug.Log("Loading Battle Scene");
         battleFillBar.fillAmount = 0f;
@@ -252,7 +259,7 @@ public class MapManager : MonoBehaviour
 
     }
 
-    public void ActionButtonClosePopups()
+    public void ActionButtonClosePopups() //Close Action popup and remove listeners for action selection
     {
         foreach (Button button in actionButtons)
         {
@@ -262,7 +269,7 @@ public class MapManager : MonoBehaviour
         
     }
 
-    void BasicPopupFunctions()
+    void BasicPopupFunctions() //The basic functions that every popup will enact. Turn off the icons, open the generic popup UI, and enable the raycast blocker to prevent icon selection
     {
         iconHolder.SetActive(false);
         Popup.SetActive(true);

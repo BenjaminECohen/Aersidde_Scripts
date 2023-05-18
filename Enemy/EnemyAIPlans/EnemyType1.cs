@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Basic AI for an enemy with 3 attacks based on health values
+/// </summary>
+
 [CreateAssetMenu(menuName = "EnemyAI/EnemyType1")]
 public class EnemyType1 : EnemyAI
 {

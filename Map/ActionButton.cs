@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Function for the UI to display an Action Node's available actions and details for selection
+/// </summary>
 public class ActionButton : MonoBehaviour
 {
     private AttackAction storedAction;

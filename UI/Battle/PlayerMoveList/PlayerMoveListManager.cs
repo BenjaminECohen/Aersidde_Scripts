@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class to manage the functionality and display of the player action list
+/// </summary>
+
 public class PlayerMoveListManager : MonoBehaviour
 {
     [Header("Attack List UI")]
@@ -18,11 +22,6 @@ public class PlayerMoveListManager : MonoBehaviour
 
     int currentMoveIndex;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void UnlistButtons()
     {
@@ -32,19 +31,21 @@ public class PlayerMoveListManager : MonoBehaviour
         }
     }
 
-    public void GenerateButtonList(PlayerStatus player)
+    public void GenerateButtonList(PlayerStatus player) //Setup all the necessary buttons and assign the correct info
     {
         int i = 0;
         foreach(AttackAction act in player.attackActions)
         {
-            moveButtons[i].GetComponentInChildren<Text>().text = act.name;
-            moveButtons[i].onClick.AddListener(() => ShowAttackInfo(act) );
+            moveButtons[i].GetComponentInChildren<Text>().text = act.name; //Get ui text and assign action name
+            moveButtons[i].onClick.AddListener(() => ShowAttackInfo(act) ); //Assign listener to button to with data for the necessary stats
             i++;
         }
         for (int j = i; j < moveButtons.Count; j++)
         {
             moveButtons[j].GetComponentInChildren<Text>().text = "Empty";
         }
+
+        //Display the first move of the players action list at the start
         currentMoveIndex = 0;
         this.player = player;
         ShowAttackInfo(player.attackActions[0]);

@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Referenced from https://www.youtube.com/watch?v=G1bd75R10m4&ab_channel=InfallibleCode
+//Base Concept Referenced from https://www.youtube.com/watch?v=G1bd75R10m4&ab_channel=InfallibleCode
+
+/// <summary>
+/// Battle system that utilizes the state machine and holds all of the necessary variables
+/// </summary>
 
 public class BattleSystem : StateMachine
 {
@@ -29,7 +33,7 @@ public class BattleSystem : StateMachine
     [Header("Enemy")]
     public List<EntityAnimController> enemyList;
     public EnemyStatus enemy;
-    public enum EnemyRig
+    public enum EnemyRig //Determines the model asset to load in for the enemy
     {
         BOSS = 0,
         FODDER = 1,
@@ -59,7 +63,7 @@ public class BattleSystem : StateMachine
     int currentMoveIndex = 0; //On button press, knows which move to execute. Last pressed move button
 
 
-    private void Awake()
+    private void Awake() //Setup necessary enemy status and similar before any calculations/UI setup takes place
     {
         if (!enemy)
         {
@@ -70,7 +74,7 @@ public class BattleSystem : StateMachine
     }
 
 
-    // Start is called before the first frame update
+    // Load all necessary UI stats and assign values. Set UI elements visibility
     void Start()
     {
         
@@ -97,7 +101,7 @@ public class BattleSystem : StateMachine
         
     }
 
-    public void ShowVictorySys()
+    public void ShowVictorySys() //Show the victory screen
     {
         playerSys.SetActive(false);
         enemySys.SetActive(false);
@@ -107,7 +111,7 @@ public class BattleSystem : StateMachine
 
     #region AttackUI
 
-    public void ToggleAttackMenu()
+    public void ToggleAttackMenu() //Toggle menu that shows the player's action list (attacks and buffs)
     {
         if (moveListManager.MoveUI.activeInHierarchy)
         {
@@ -150,9 +154,9 @@ public class BattleSystem : StateMachine
         }
         else
         {
-            //Not enough mana
+            //Not enough mana console log
             Debug.Log($"<color=red>Not Enough Mana</color>");
-            //Play error sound
+            
         }
         
         

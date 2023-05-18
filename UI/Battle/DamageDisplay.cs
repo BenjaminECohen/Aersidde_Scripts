@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class to handle the UI damage numbers that appear when an action is enacted on an entity
+/// </summary>
+
+
 public class DamageDisplay : MonoBehaviour
 {
     public GameObject damageDisplay;

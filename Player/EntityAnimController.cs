@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Animation controller that handles the generic actions an entity will enact in battle
+/// </summary>
+
 public class EntityAnimController : MonoBehaviour
 {
 
@@ -13,7 +17,7 @@ public class EntityAnimController : MonoBehaviour
     }
 
     /*
-    private void Update()
+    private void Update() //Functions to test animations for the developer
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

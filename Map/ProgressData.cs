@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Scriptable object that holds the current progress of the player throughout all scenes
+/// </summary>
+
 [CreateAssetMenu]
 public class ProgressData : ScriptableObject
 {
